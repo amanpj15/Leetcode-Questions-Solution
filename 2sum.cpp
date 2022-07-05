@@ -1,8 +1,19 @@
-#include<stdio.h>
-#include<iostream>
-using namespace std;
-int main()
-{
-	return 0;
-}
-
+#include<bits/stdc++.h>
+class Solution {
+public :
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> ans;
+        unordered_map<int, int> m;
+        for(int i = 0; i < nums.size(); i++)
+        {
+            if(m.find(target - nums[i]) != m.end())
+            {
+                ans.push_back(m[target-nums[i]]);
+                ans.push_back(i);
+                return ans; // cuz we only have to find single element here
+            }
+            m[nums[i]] = i;
+        }
+        return ans;
+    }
+};
