@@ -11,18 +11,16 @@ using namespace std;
         mpp['D'] = 500;
         mpp['M'] = 1000;
 
-	int result = mpp[s[s.length()-1]];
-		//cout << "Reesult = " << result<< endl;
-	for(int i = s.length()-2; i >= 0; i--)
-	{
+	int result = mpp[s[s.length()-1]];  // V's 5 will store
+		
+	for(int i = s.length()-2; i >= 0; i--) {
 		if(mpp[s[i]] < mpp[s[i+1]])
-		result-=mpp[s[i]];
+			result -= mpp[s[i]];
 		else
-		result+=mpp[s[i]];
+			result += mpp[s[i]];
 		//cout << "Result = " << result<< endl;
 	}
-//        int result = (mpp.end()-1).second;
-  return result;
+  		return result;
 
     }
 int main()
